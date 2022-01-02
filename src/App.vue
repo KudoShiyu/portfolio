@@ -5,7 +5,7 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component'
-import Header from '@/components/Header.vue' // @ is an alias to /src
+import Header from '@/uniques/Header.vue' // @ is an alias to /src
 @Options({
   components: {
     Header

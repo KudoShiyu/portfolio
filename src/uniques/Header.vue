@@ -2,10 +2,9 @@
   <header>
     <router-link to="/"><h1 class="name">Kudo Shiyu</h1></router-link>
     <ul class="tabs">
-      <li><router-link to="/">Home</router-link></li>
-      <li><router-link to="/about">Works</router-link></li>
-      <li><router-link to="/about">Profile</router-link></li>
-      <li><router-link to="/about">Contact</router-link></li>
+      <li class="tab"><router-link to="/">Works</router-link></li>
+      <li class="tab"><router-link to="/about">Profile</router-link></li>
+      <li class="tab"><router-link to="/about">Contact</router-link></li>
     </ul>
   </header>
 </template>
@@ -22,25 +21,24 @@ header {
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 0 3vw;
-
+  padding-top: 10px;
   .name {
     padding: 1vw 2vw;
-    display: inline;
     font-size: 1.2rem;
     font-weight: 900;
   }
-
   .tabs {
     padding: 1vw 2vw;
-    display: inline;
+    position: relative;
+    height: 100%;
+    bottom: 0;
     li {
       display: inline;
       & + li::before {
         content: " | ";
       }
     }
-
-  a {
+    a {
       font-weight: bold;
       color: $c_gray;
       &.router-link-exact-active {
@@ -48,6 +46,5 @@ header {
       }
     }
   }
-  padding: 30px;
 }
 </style>
