@@ -1,43 +1,67 @@
 <template>
-  <Work :src="require('@/assets/images/circuit/電子回路bold.png')" alt="電子回路">
-    <template #description>
-      <span>
-        このポートフォリオサイト
-      </span>
+  <Work
+    :src="require('@/assets/images/hny2022/render.jpg')"
+    alt="電子回路"
+    captionbg="black"
+    :tools="{
+          言語: ['Vue3','TypeScript','scss'],
+          コードエディタ: ['Visual Studio Code'],
+          デプロイ: ['GitHub'],
+        }"
+  >
+    <template #title>
+      <span>本ポートフォリオ</span>
     </template>
-    <div class="image">
-      <img src="@/assets/images/circuit/電子回路bold.png" alt="電子回路">
-    </div>
-    <section><pre>フレームワーク"Vue"を用いて開発したポートフォリオ用ホームページ。
-class-style componentを採用し、TypeScriptとscssを併用して開発を行った。
-バージョン管理、公開はGitHub(Pages)で行っている。
-<a href="https://github.com/KudoShiyu/portfolio" target="blank">ソースコード(Github)</a></pre><br>言語: Vue3 + TypeScript + scss<br>ツール: Visual Studio Code, GitHub</section>
+    <template #description>
+      <section>
+        フレームワーク"Vue"を用いて開発したポートフォリオ用ホームページ。<br>
+        class-style component / Composition API を用い、TypeScriptとscssを併用して開発を行った。<br>
+        バージョン管理、公開はGitHub(Pages)で行っている。<br>
+        <a class="link" href="https://github.com/KudoShiyu/portfolio" target="blank">ソースコード(Github)</a>
+      </section>
+    </template>
+    <template #pics>
+      <div class="imgLines">
+        <div class="imgLine">
+          <div class="img"><img src="@/assets/images/hny2022/letter.png" alt="電子回路" /></div>
+          <div class="img"><img src="@/assets/images/hny2022/render.jpg" alt="電子回路" /></div>
+          <div class="img"><img src="@/assets/images/hny2022/letter.png" alt="電子回路" /></div>
+          <div class="img"><img src="@/assets/images/hny2022/render.jpg" alt="電子回路" /></div>
+        </div>
+        <div class="imgLine">
+          <div class="img"><img src="@/assets/images/hny2022/letter.png" alt="電子回路" /></div>
+          <div class="img"><img src="@/assets/images/hny2022/render.jpg" alt="電子回路" /></div>
+          <div class="img"><img src="@/assets/images/hny2022/letter.png" alt="電子回路" /></div>
+          <div class="img"><img src="@/assets/images/hny2022/render.jpg" alt="電子回路" /></div>
+        </div>
+      </div>
+    </template>
   </Work>
+
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component'
 import Work from '@/components/Work.vue'
-@Options({
+import { defineComponent } from 'vue'
+export default defineComponent({
   components: {
     Work
   }
 })
-export default class Portfolio extends Vue {}
 </script>
 
 <style scoped lang="scss">
-span{
+span {
   color: white;
 }
-.image{
-  width: auto;
-  margin: 10px;
-}
-img{
+img {
+  padding: 0.5vw;
   width: 100%;
 }
-section{
-  padding-bottom: 10px;
+.imgLines{
+  display: flex;
+}
+.link {
+  text-decoration: underline;
 }
 </style>

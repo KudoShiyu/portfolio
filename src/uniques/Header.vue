@@ -22,6 +22,8 @@ header {
   justify-content: space-between;
   margin: 0 3vw;
   padding-top: 10px;
+  border-bottom-color: black ;
+  border-bottom-width: 1px ;
   .name {
     padding: 1vw 2vw;
     font-size: 1.2rem;
@@ -39,7 +41,7 @@ header {
       }
     }
     a {
-      font-weight: bold;
+      font-weight: 500;
       color: $c_gray;
       &.router-link-exact-active {
         color: $c_green;

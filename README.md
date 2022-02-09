@@ -1,7 +1,5 @@
 # portfolio
 
-kudo shiyu's portfolio
-
 ## Project setup
 ```
 npm install
