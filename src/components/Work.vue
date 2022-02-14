@@ -1,45 +1,56 @@
 <template>
   <div class="work">
-    <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
-      <div class="thumbnail" @click="show = true">
-        <img class="image" :src="src" :alt="alt" />
-        <div class="title">
-          <div class="title_content" :style="{ 'background-color': captionbg }">
-            <slot name="title"></slot>
-          </div>
+
+    <Thumbnail :alt="alt" :bgcolor="captionbg" :color="color" :src="src" :time="time" @open="show = true">
+      <slot name="title"></slot>
+    </Thumbnail>
+
+    <div class="abs portrait" v-if="show && isPortrait">
+      <div class="frame" @click="show = false"></div>
+
+      <!-- <transition appear name="up"> -->
+        <div class="picsFlex">
+          <slot name="pics"></slot>
         </div>
-      </div>
-      <div class="frame"  v-show="show" @click="show = false"></div>
-      <transition appear v-show="show" name="up">
+      <!-- </transition> -->
+
+      <!-- <transition appear name="down"> -->
+        <Caption class="caption" :time="time" :tools="tools" @close="show = false">
+          <template #title ><slot name="title"></slot></template>
+          <template #description ><slot name="description"></slot></template>
+        </Caption>
+      <!-- </transition> -->
+    </div>
+
+    <div class="abs landscape" v-if="show && ! isPortrait">
+      <div class="frame" @click="show = false"></div>
+
+      <transition appear name="up">
         <div class="picsFlex">
           <slot name="pics"></slot>
         </div>
       </transition>
-      <transition appear v-show="show" name="down">
-        <article class="article">
-          <div class="titlerow">
-            <div class="title_content" :style="{ 'background-color': captionbg }">
-              <slot name="title"></slot>
-            </div>
-            <Close :color="'#000'" class="close" @click="show = false"/>
-          </div>
-          <div class="sections">
-            <slot name="description"></slot>
-          </div>
-          <Tools :tools="tools" />
-        </article>
+
+      <transition appear name="down">
+        <Caption class="caption" :time="time" :tools="tools" @close="show = false">
+          <template #title ><slot name="title"></slot></template>
+          <template #description ><slot name="description"></slot></template>
+        </Caption>
       </transition>
+    </div>
+
   </div>
 </template>
 
 <script lang="ts">
 import { ref, defineComponent } from 'vue'
-import Close from '@/atoms/Close.vue'
-import Tools from '@/components/Tools.vue'
+import Caption from '@/components/Caption.vue'
+import Thumbnail from '@/components/Thumbnail.vue'
+
 export default defineComponent({
   components: {
-    Tools,
-    Close
+    Caption,
+    Thumbnail
   },
   props: {
     tools: {
@@ -48,96 +59,82 @@ export default defineComponent({
     },
     src: String,
     alt: String,
-    captionbg: String
+    time: String,
+    captionbg: String,
+    color: String
   },
   setup () {
     const show = ref(false)
-    return { show }
+    const isPortrait = ref(screen.height > screen.width)
+    return { show, isPortrait }
   }
 })
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.thumbnail {
-  width: 30vw;
-  height: 30vw;
-  position: relative;
-  .image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .title {
-    text-align: center;
-    width: 100%;
-    font-weight: 100;
-    position: absolute;
-    bottom: 10%;
-  }
-}
-.titlerow {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  .close {
-    font-size:1.3rem;
-    flex: 0 0 auto;
-    margin-left: 1rem;
-  }
-}
-.title_content {
-    flex: 1 0 auto;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  display: inline-block;
-  padding: 0 1rem;
-  border-radius: 1rem;
+.abs{
+  z-index: 2;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
 }
 
 .frame {
-  z-index: 2;
-  position: fixed;
-  display: flex;
-  left: 0;
-  top: 0;
+  position: absolute;
   width: 100vw;
   height: 100vh;
   background-color: rgba($color: #000000, $alpha: 0.2);
-  width: 100%;
-  height: 100%;
 }
 
-.article {
-  z-index: 2;
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  margin: 1vw;
-  padding: 1vw;
-  width: 20vw;
-  background-color: #fff;
-  border-radius: 5px;
+.caption {
+  position: absolute;
+
+  .landscape & {
+        width: 21%;
+        height: 100vh;
+        right: 0;
+        top: 0;
+        margin: 0.5rem;
+  }
+
+  .portrait & {
+      right: 0;
+      bottom: 0;
+      top: auto;
+      width: 100%;
+      height: 30vh;
+  }
 }
 
 .picsFlex {
-  z-index: 2;
-  position: fixed;
+  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  top: 0;
-  left: 0;
-  margin: 1vw;
-  width: 77%;
-  height: calc(100vh - 2vw );
-  border-radius: 5px;
   overflow:auto;
-  &::-webkit-scrollbar {
+
+  .landscape & {
+    top: 0;
+    left: 0;
+    margin: 1vw;
+    width: 77%;
+    height: calc(100vh - 2vw );
+    border-radius: 5px;
+  }
+
+  .portrait & {
+    top: 0;
+    left: 0;
+    margin: 1vw;
+    width: 100%;
+    height: 70vh;
+    border-radius: 5px;
+  }
+
+&::-webkit-scrollbar {
     width: 6px;
     height: 6px;
   }
@@ -179,8 +176,8 @@ export default defineComponent({
 .up-enter, .up-leave-to {
   transform: translate(0, 100vh);
 }
+
 .up-enter-to {
   transform: translate(0, 0);
 }
-
 </style>

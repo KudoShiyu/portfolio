@@ -1,5 +1,5 @@
 <template>
-<section>
+<section class="all">
   <h1 class="title">{{category}}</h1>
   <ul class="items">
     <slot></slot>
@@ -20,12 +20,17 @@ export default class Portfolio extends Vue {
 </script>
 
 <style scoped lang="scss">
+.all{
+  margin-right: 2vw;
+}
+
 .items{
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .title{
-  padding: 10px;
   font-size: 3em;
   font-weight: 300;
 }

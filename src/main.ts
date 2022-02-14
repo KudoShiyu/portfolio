@@ -11,5 +11,4 @@ library.add(faXmark)
 const app = createApp(App)
 
 app.component('font-awesome-icon', FontAwesomeIcon)
-
 app.use(router).mount('#app')

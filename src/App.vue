@@ -1,6 +1,8 @@
 <template>
+<div class="all">
   <Header/>
   <router-view/>
+</div>
 </template>
 
 <script lang="ts">
@@ -21,5 +23,8 @@ export default class App extends Vue {}
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+.all{
+  background-color: #fff;
 }
 </style>

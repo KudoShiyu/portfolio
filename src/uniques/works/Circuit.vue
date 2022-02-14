@@ -1,6 +1,7 @@
 <template>
   <Work
     :src="require('@/assets/images/circuit/電子回路bold.png')"
+    time="2021/06"
     alt="タイポグラフィー"
     captionbg="white"
     :tools="{
