@@ -20,7 +20,7 @@
       </section>
     </template>
     <template #pics>
-      <img src="@/assets/images/jissoku/main.svg" alt="図面">
+      <img src="@/assets/images/jissoku/all.png" alt="図面">
       <img src="@/assets/images/jissoku/zoom.png" alt="図面">
     </template>
   </Work>
