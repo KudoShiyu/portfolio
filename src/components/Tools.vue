@@ -1,5 +1,5 @@
 <template>
-<div class="tools" :style="`text-align:${align};`">
+<div class="tools" :style="`text-align:${align};${maxwidth?'width:100%;':''}`">
   <div class="tool" v-for="(toollist,tooltype) in tools" :key="tooltype">
     <span>{{tooltype}}</span>
     <ul>
@@ -13,14 +13,16 @@
 import { defineProps, withDefaults } from 'vue'
 interface Props{
   tools: {[key:string]:string[]},
-  align: string
+  align: string,
+  maxwidth: boolean
 }
 
 withDefaults(
   defineProps<Props>(),
   {
     tools: () => ({}),
-    align: 'left'
+    align: 'left',
+    maxwidth: false
   }
 )
 </script>
@@ -28,7 +30,7 @@ withDefaults(
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .tools {
-  margin: 0 1rem;
+  padding: 0 1rem;
   font-size: 0.9rem;
   display: inline-block;
   text-align: left;

@@ -26,6 +26,12 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import(/* webpackChunkName: "jissoku" */ '../views/works/Jissoku.vue')
   },
   {
+    path: '/works/people_plot',
+    name: 'PeoplePlot',
+    component: () => import(/* webpackChunkName: "people_plot" */ '../views/works/PeoplePlot.vue')
+  },
+
+  {
     path: '/works/hny2022',
     name: 'HNY2022',
     component: () => import(/* webpackChunkName: "hny2022" */ '../views/works/HNY2022.vue')
@@ -40,6 +46,22 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Portfolio',
     component: () => import(/* webpackChunkName: "portfolio" */ '../views/works/Portfolio.vue')
   },
+  {
+    path: '/works/bitmap_font',
+    name: 'BitmapFont',
+    component: () => import(/* webpackChunkName: "bitmap_font" */ '../views/works/BitmapFont.vue')
+  },
+  {
+    path: '/works/wordle',
+    name: 'Wordle',
+    component: () => import(/* webpackChunkName: "wordle" */ '../views/works/Wordle.vue')
+  },
+  {
+    path: '/works/paraglyph',
+    name: 'Paraglyph',
+    component: () => import(/* webpackChunkName: "paraglyph" */ '../views/works/Paraglyph.vue')
+  },
+
   {
     path: '/works/petabo',
     name: 'Petabo',
@@ -59,6 +81,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/works/unit',
     name: 'Unit',
     component: () => import(/* webpackChunkName: "unit" */ '../views/works/Unit.vue')
+  },
+  {
+    path: '/works/hny2021',
+    name: 'HNY2021',
+    component: () => import(/* webpackChunkName: "hny2021" */ '../views/works/HNY2021.vue')
   }
 ]
 

@@ -18,6 +18,13 @@
   color="white"
   routerlink="/works/jissoku"
 />
+<WorkThumbnail
+  :src="require('@/assets/images/peoplePlot/noon.png')"
+  title="GPSによる人流調査"
+  bgcolor="black"
+  color="white"
+  routerlink="/works/people_plot"
+/>
 </Category>
 
 <Category category="program">
@@ -36,11 +43,32 @@
   routerlink="/works/sign_ui_gen"
 />
 <WorkThumbnail
+  :src="require('@/assets/images/bitmapFont/tn.png')"
+  title="BitmapFont"
+  bgcolor="black"
+  color="white"
+  routerlink="/works/bitmap_font"
+/>
+<WorkThumbnail
   :src="require('@/assets/images/portfolio/clip.png')"
   title="Portfolio"
   bgcolor="black"
   color="white"
   routerlink="/works/portfolio"
+/>
+<WorkThumbnail
+  :src="require('@/assets/images/wordle/dialogue.png')"
+  title="Wordle Solver"
+  bgcolor="black"
+  color="white"
+  routerlink="/works/wordle"
+/>
+<WorkThumbnail
+  :src="require('@/assets/images/paraglyph/tn.png')"
+  title="ぱらぐりふ"
+  bgcolor="black"
+  color="white"
+  routerlink="/works/paraglyph"
 />
 </Category>
 
@@ -72,6 +100,13 @@
   bgcolor="black"
   color="white"
   routerlink="/works/unit"
+/>
+<WorkThumbnail
+  :src="require('@/assets/images/hny2021/1.jpg')"
+  title="2021年賀状"
+  bgcolor="black"
+  color="white"
+  routerlink="/works/hny2021"
 />
 </Category>
 </div>
