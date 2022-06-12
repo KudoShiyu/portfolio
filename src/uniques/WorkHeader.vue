@@ -1,10 +1,7 @@
 <template>
   <header>
     <router-link to="/"><h1 class="name">Kudo Shiyu</h1></router-link>
-    <ul class="tabs">
-      <li class="tab"><router-link to="/">Works</router-link></li>
-      <li class="tab"><router-link to="/about">Profile</router-link></li>
-    </ul>
+    <router-link to="/"><span class="close">×</span></router-link>
   </header>
 </template>
 
@@ -15,6 +12,13 @@ export default class Header extends Vue {}
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.close{
+  font-weight: 100;
+  top: -0.85rem;
+  position: relative;
+  font-size: 3rem;
+}
+
 header {
   position: fixed;
   z-index: 100;
@@ -30,26 +34,6 @@ header {
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 2.3rem;
     font-weight: 500;
-  }
-  .tabs {
-    position: absolute;
-    right:0;
-    top:0.5rem;
-    bottom: 0;
-    li {
-      display: inline;
-      & + li {
-        margin-left: 0.5rem;
-      }
-    }
-    a {
-      font-size: 1.5rem;
-      font-weight: 300;
-      color: $c_gray;
-      &.router-link-exact-active {
-        font-weight: 500;
-      }
-    }
   }
 }
 </style>

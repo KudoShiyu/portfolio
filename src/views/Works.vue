@@ -1,55 +1,98 @@
 <template>
 <div class="main">
+<Header/>
+<div class="space"></div>
+
 <Category category="architecture">
-  <B1House/>
-  <Jissoku/>
+<WorkThumbnail
+  :src="require('@/assets/images/b1House/8.jpg')"
+  title="軽井沢の山荘"
+  bgcolor="black"
+  color="white"
+  routerlink="/works/b1House"
+/>
+<WorkThumbnail
+  :src="require('@/assets/images/jissoku/main.png')"
+  title="榎本家 配置図"
+  bgcolor="black"
+  color="white"
+  routerlink="/works/jissoku"
+/>
 </Category>
+
 <Category category="program">
-    <HNY2022/>
-    <SignUIgen/>
-    <Portfolio/>
+<WorkThumbnail
+  :src="require('@/assets/images/hny2022/render.jpg')"
+  title="2022年賀状"
+  bgcolor="black"
+  color="white"
+  routerlink="/works/hny2022"
+/>
+<WorkThumbnail
+  :src="require('@/assets/images/SignUIgen/all.png')"
+  title="Sign UI Generator"
+  bgcolor="black"
+  color="white"
+  routerlink="/works/sign_ui_gen"
+/>
+<WorkThumbnail
+  :src="require('@/assets/images/portfolio/clip.png')"
+  title="Portfolio"
+  bgcolor="black"
+  color="white"
+  routerlink="/works/portfolio"
+/>
 </Category>
+
 <Category category="other">
-  <Petabo/>
-  <Chair/>
-  <Circuit/>
-  <Unit/>
+<WorkThumbnail
+  :src="require('@/assets/images/petabo/9.jpg')"
+  title="ペタボーの大空"
+  bgcolor="black"
+  color="white"
+  routerlink="/works/petabo"
+/>
+<WorkThumbnail
+  :src="require('@/assets/images/chair/6.jpg')"
+  title="やどりぎ"
+  bgcolor="black"
+  color="white"
+  routerlink="/works/chair"
+/>
+<WorkThumbnail
+  :src="require('@/assets/images/circuit/電子回路bold.png')"
+  title="タイポグラフィー"
+  bgcolor="black"
+  color="white"
+  routerlink="/works/circuit"
+/>
+<WorkThumbnail
+  :src="require('@/assets/images/unit/5.jpg')"
+  title="Unit"
+  bgcolor="black"
+  color="white"
+  routerlink="/works/unit"
+/>
 </Category>
 </div>
 </template>
-<script lang="ts">
 
-import { Options, Vue } from 'vue-class-component'
+<script lang="ts" setup>
 import Category from '@/components/Category.vue'
-import Circuit from '@/uniques/works/Circuit.vue'
-import Portfolio from '@/uniques/works/Portfolio.vue'
-import HNY2022 from '@/uniques/works/HNY2022.vue'
-import SignUIgen from '@/uniques/works/SignUIgen.vue'
-import B1House from '@/uniques/works/b1House.vue'
-import Petabo from '@/uniques/works/petabo.vue'
-import Chair from '@/uniques/works/Chair.vue'
-import Unit from '@/uniques/works/Unit.vue'
-import Jissoku from '@/uniques/works/Jissoku.vue'
 
-@Options({
-  components: {
-    Category,
-    Circuit,
-    Portfolio,
-    HNY2022,
-    SignUIgen,
-    B1House,
-    Petabo,
-    Chair,
-    Unit,
-    Jissoku
-  }
-})
-export default class Works extends Vue {}
+import WorkThumbnail from '@/components/WorkThumbnail.vue'
+
+import Header from '@/uniques/Header.vue'
 </script>
 
 <style lang="scss" scoped>
 .main {
   width: 100%;
+}
+.space{
+  padding-top: 2rem;
+  @media (max-width:600px) {
+    padding-top: 4rem;
+  }
 }
 </style>

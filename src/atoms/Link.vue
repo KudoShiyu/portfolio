@@ -15,6 +15,7 @@ export default defineComponent({
 
 <style scoped lang="scss">
 a{
+  display: block;
   text-decoration: underline;
 }
 </style>

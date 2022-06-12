@@ -1,5 +1,5 @@
 <template>
-<div class="tools">
+<div class="tools" :style="`text-align:${align};`">
   <div class="tool" v-for="(toollist,tooltype) in tools" :key="tooltype">
     <span>{{tooltype}}</span>
     <ul>
@@ -9,20 +9,26 @@
 </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-export default defineComponent({
-  props: {
-    tools: { type: Object as () => {[key:string]:string[]}, required: true }
+<script lang="ts" setup>
+import { defineProps, withDefaults } from 'vue'
+interface Props{
+  tools: {[key:string]:string[]},
+  align: string
+}
+
+withDefaults(
+  defineProps<Props>(),
+  {
+    tools: () => ({}),
+    align: 'left'
   }
-  // setup (props, context) {
-  // }
-})
+)
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .tools {
+  margin: 0 1rem;
   font-size: 0.9rem;
   display: inline-block;
   text-align: left;

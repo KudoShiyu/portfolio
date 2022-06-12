@@ -20,18 +20,14 @@ export default class Portfolio extends Vue {
 </script>
 
 <style scoped lang="scss">
-.all{
-  margin-right: 2vw;
-}
-
 .items{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: start;
 }
 
 .title{
-  font-size: 3em;
   font-weight: 300;
+  font-size: 2rem;
 }
 </style>
