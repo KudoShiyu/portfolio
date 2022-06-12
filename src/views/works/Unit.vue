@@ -42,7 +42,7 @@ import WorkGallery from '@/components/WorkGallery.vue'
 import Tools from '@/components/Tools.vue'
 const sm = ref(document.body.clientWidth < 400)
 
-const title = 'やどりぎ'
+const title = 'ユニット'
 const desc = `ボール紙による箱を角でジョイントすることで広がってゆくユニット。
 黄金比の菱形を組み合わせた非周期的な空間充填を実現しようとしたが、強度が及ばず非周期とはならなかった。`
 const date = '2020/08'
