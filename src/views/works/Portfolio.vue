@@ -23,8 +23,8 @@ import Tools from '@/components/Tools.vue'
 const sm = ref(document.body.clientWidth < 400)
 
 const title = 'Portfolio'
-const desc = `フレームワーク"Vue"を用いて開発したポートフォリオ用ホームページ。<br>
-class-style component / Composition API を用い、TypeScriptとscssを併用して開発を行った。<br>
+const desc = `フレームワーク"Vue"を用いて開発したポートフォリオ用ホームページ。
+class-style component / Composition API を用い、TypeScriptとscssを併用して開発を行った。
 バージョン管理、公開はGitHub(Pages)で行っている。`
 const date = '2022/02'
 const tools = {
