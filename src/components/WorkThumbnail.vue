@@ -23,6 +23,7 @@ defineProps({
 
 <style scoped lang="scss">
 .thumbnail {
+  width: 20%;
   @media (max-width:1800px){
     width: 25%;
   }
@@ -35,9 +36,8 @@ defineProps({
   @media (max-width:600px){
     width: 100%;
   }
-  // min-width: 350px;
   aspect-ratio: 1;
-  flex-basis: content;
+  flex-basis:auto;
   position: relative;
   overflow:hidden;
   .image {
